@@ -74,37 +74,41 @@ $tasks = [
 
 Route::get('/', function () use ($tasks){
     return view('index', [
-        'tasks'=> '$tasks',
+        'tasks'=> $tasks,
     ]);
-});
+})->name('tasks.index');
+
+Route::get('/{id}', function ($id){
+  return 'One single task'; 
+})->name('tasks.show');
 
 /**
  * with {!! $value !!}
  */
-Route::get('/unescaped', function () {
-    return view('index', [
-        'name'=> '<script>alert("Tamas")</script>',
-    ]);
-});
+// Route::get('/unescaped', function () {
+//     return view('index', [
+//         'name'=> '<script>alert("Tamas")</script>',
+//     ]);
+// });
 
-Route::get('/xxx', function () {
-    return 'Hello';
-})->name('hello');
+// Route::get('/xxx', function () {
+//     return 'Hello';
+// })->name('hello');
 
-Route::get('/hallo', function () {
-    return redirect()->route('hello');
-});
+// Route::get('/hallo', function () {
+//     return redirect()->route('hello');
+// });
 
-Route::get('/greet/{name}', function ($name) {
-    return 'Hello ' . $name . '!';
-});
+// Route::get('/greet/{name}', function ($name) {
+//     return 'Hello ' . $name . '!';
+// });
 
-Route::fallback(function () {
-    return 'Still got somewhere!';
-});
+// Route::fallback(function () {
+//     return 'Still got somewhere!';
+// });
 
-Route::get('/vvv', function () {
-    return view('greeting', ['name' => 'Finn']);
-});
+// Route::get('/vvv', function () {
+//     return view('greeting', ['name' => 'Finn']);
+// });
 
 
