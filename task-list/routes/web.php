@@ -71,15 +71,18 @@ $tasks = [
 ];
 
 
+Route::get('/', function () {
+  return redirect()->route('tasks.index');
+});
 
-Route::get('/', function () use ($tasks){
-    return view('index', [
-        'tasks'=> $tasks,
-    ]);
+Route::get('/tasks', function () use ($tasks) {
+  return view('index', [
+    'tasks' => $tasks,
+  ]);
 })->name('tasks.index');
 
-Route::get('/{id}', function ($id){
-  return 'One single task'; 
+Route::get('/tasks/{id}', function ($id) {
+  return 'One single task';
 })->name('tasks.show');
 
 /**
@@ -103,9 +106,9 @@ Route::get('/{id}', function ($id){
 //     return 'Hello ' . $name . '!';
 // });
 
-// Route::fallback(function () {
-//     return 'Still got somewhere!';
-// });
+Route::fallback(function () {
+  return 'Still got somewhere!';
+});
 
 // Route::get('/vvv', function () {
 //     return view('greeting', ['name' => 'Finn']);
