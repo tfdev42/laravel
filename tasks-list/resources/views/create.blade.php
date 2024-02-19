@@ -18,7 +18,7 @@
         </div>
 
         <div>
-            <label for="long_description">Description</label>
+            <label for="long_description">Long Description</label>
             <textarea name="long_description" id="long_description" rows="10"></textarea>
         </div>
 
