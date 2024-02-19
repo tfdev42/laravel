@@ -70,17 +70,27 @@ $tasks = [
     ),
 ];
 
-
+/**
+ * redirect to tasks list
+ */
 Route::get('/', function () {
     return redirect()->route('tasks.index');
 });
 
+/**
+ * define the Tasks INDEX page
+ */
 Route::get('/tasks', function () use ($tasks) {
     return view('index', [
         'tasks' => $tasks,
     ]);
 })->name('tasks.index');
 
+
+
+/**
+ * 
+ */
 Route::get('/tasks/{id}', function ($id) use ($tasks) {
     $task = collect($tasks)->firstWhere('id', $id);
 
