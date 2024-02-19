@@ -95,6 +95,13 @@ Route::get('/tasks', function () {
 // })->name('tasks.index');
 
 
+/**
+ * create View
+ */
+Route::view('/tasks/create', 'create')->name('tasks.create');
+
+
+
 
 Route::get('/tasks/{id}', function ($id) {
 
@@ -103,6 +110,10 @@ Route::get('/tasks/{id}', function ($id) {
     ]);
 
 })->name('tasks.show');
+
+
+
+
 
 
 
